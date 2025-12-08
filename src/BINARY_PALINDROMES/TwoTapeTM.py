@@ -24,7 +24,7 @@ class TwoTapeTM:
             #Tape 1: Recibe la cadena y la convierte a lista "10001" -> [1,0,0,0,1]
             #Taoe 2: Lista llena de Blancos de la longitud de tape1
             self.tape_1= list(input_string)
-            self.tape_2=[self.blank] * len(self.tape1)
+            self.tape_2=[self.blank] * len(self.tape_1)
 
     def _ensure_bounds(self): #Metodo de utileria, se encarga de ver en caso de que el cabezal se sobrepase del rango de la lista
         
