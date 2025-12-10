@@ -10,7 +10,7 @@ class CreditsWindow(QMainWindow):
         self.setWindowTitle("Créditos")
         self.setGeometry(250, 150, 420, 400)
         self.setWindowFlags(Qt.WindowType.FramelessWindowHint)
-        self.setStyleSheet("background-color: white;")
+        self.setStyleSheet("background-color: black;")
 
         SegoeScriptFont = QFont()
         SegoeScriptFont.setFamily("Segoe Script")

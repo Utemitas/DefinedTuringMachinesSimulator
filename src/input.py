@@ -2,7 +2,8 @@ from PyQt6.QtWidgets import QLabel, QPushButton, QApplication, QMainWindow, QLin
 from PyQt6.QtCore import Qt, QRegularExpression
 from PyQt6.QtGui import QFont, QIcon, QRegularExpressionValidator, QImage, QPixmap
 import sys, os
-
+from Palindromes import StepsWindow
+from Binary_PalindromesTM import *
 
 class WarningWindow(QMainWindow):
     def __init__(self, directorio : str = os.path.dirname(os.path.abspath(__file__))):
@@ -10,7 +11,7 @@ class WarningWindow(QMainWindow):
         self.setWindowTitle("Warning")
         self.setGeometry(350, 250, 230, 100)
         self.setWindowFlags(Qt.WindowType.FramelessWindowHint)
-        self.setStyleSheet("background-color: white;")
+        self.setStyleSheet("background-color: black;")
         SegoeScriptFont = QFont()
         SegoeScriptFont.setFamily("Segoe Script")
         SegoeScriptFont.setPointSize(12)
@@ -54,7 +55,7 @@ class WarningWindow(QMainWindow):
         if event.button() == Qt.MouseButton.LeftButton:
             self.__drag_position = event.globalPosition().toPoint() - self.frameGeometry().topLeft()
             event.accept()
-    
+
     def mouseMoveEvent(self, event):
         if event.buttons() == Qt.MouseButton.LeftButton and self.__drag_position is not None:
             self.move(event.globalPosition().toPoint() - self.__drag_position)
@@ -66,7 +67,7 @@ class InputWindow(QMainWindow):
         self.setWindowTitle("Input Window")
         self.setGeometry(300, 200, 200, 150)
         self.setWindowFlags(Qt.WindowType.FramelessWindowHint)
-        self.setStyleSheet("background-color: white;")
+        self.setStyleSheet("background-color: black;")
         self.variant = variant
 
         SegoeScriptFont = QFont()
@@ -139,12 +140,12 @@ class InputWindow(QMainWindow):
         self.start_button.clicked.connect(self.validate_input)
 
         self.__drag_position = None
-    
+
     def mousePressEvent(self, event):
         if event.button() == Qt.MouseButton.LeftButton:
             self.__drag_position = event.globalPosition().toPoint() - self.frameGeometry().topLeft()
             event.accept()
-    
+
     def mouseMoveEvent(self, event):
         if event.buttons() == Qt.MouseButton.LeftButton and self.__drag_position is not None:
             self.move(event.globalPosition().toPoint() - self.__drag_position)
@@ -163,11 +164,15 @@ class InputWindow(QMainWindow):
                 self.warning_window.show()
                 return False
             #Funcion de máquina de turing que devuelve el max(a, 0)
-        #else:
-            #Maquina de turing que procesa palindromos
+        else:
+                #Palindromos
+                tm = Binary_PalindromesTM()
+                tm.load(input_text)
+                current_dir = os.path.dirname(os.path.abspath(__file__))
+                self.sim_window = StepsWindow(tm, current_dir)
+                self.sim_window.show()
         self.close()
         return True
-
 
 if __name__ == "__main__":
     directorio_actual = os.path.dirname(os.path.abspath(__file__))
