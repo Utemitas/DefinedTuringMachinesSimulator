@@ -3,12 +3,13 @@ from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QFont, QIcon
 import sys, os
 from creditos import CreditsWindow
+from input import InputWindow
 
 class MainWindow(QMainWindow):
     def __init__(self, directorio : str = os.path.dirname(os.path.abspath(__file__))):
         super().__init__()
         self.setWindowTitle("Maquinas de Turing")
-        self.setGeometry(200, 100, 330, 400)
+        self.setGeometry(200, 100, 330, 350)
         self.setWindowFlags(Qt.WindowType.FramelessWindowHint)
         self.setStyleSheet("background-color: white;")
 
@@ -29,6 +30,14 @@ class MainWindow(QMainWindow):
         path_to_credit_hover = os.path.join(directorio, "assets", "icons", "credit_btn_hover.png")
         self.credit_icon_normal = QIcon(path_to_credit_icon)
         self.credit_icon_hover = QIcon(path_to_credit_hover)
+        path_to_max_icon = os.path.join(directorio, "assets", "icons", "max_btn.png")
+        path_to_max_hover = os.path.join(directorio, "assets", "icons", "max_btn_hover.png")
+        self.max_icon_normal = QIcon(path_to_max_icon)
+        self.max_icon_hover = QIcon(path_to_max_hover)
+        path_to_pal_icon = os.path.join(directorio, "assets", "icons", "pal_btn.png")
+        path_to_pal_hover = os.path.join(directorio, "assets", "icons", "pal_btn_hover.png")
+        self.pal_icon_normal = QIcon(path_to_pal_icon)
+        self.pal_icon_hover = QIcon(path_to_pal_hover)
 
         self.title_label = QLabel("Máquinas de Turing", self)
         self.title_label.setFont(SegoeScriptFont)
@@ -64,6 +73,26 @@ class MainWindow(QMainWindow):
         self.creditButton.enterEvent = lambda e: self.creditButton.setIcon(self.credit_icon_hover)
         self.creditButton.leaveEvent = lambda e: self.creditButton.setIcon(self.credit_icon_normal)
 
+        self.max_button = QPushButton()
+        self.max_button.setParent(self)
+        self.max_button.setGeometry(20, 90, 290, 75)
+        self.max_button.setStyleSheet("QPushButton { border: none; }")
+        self.max_button.setIcon(QIcon(path_to_max_icon))
+        self.max_button.setIconSize(self.max_button.size())
+        self.max_button.clicked.connect(self.openInputWindowMax)
+        self.max_button.enterEvent = lambda e: self.max_button.setIcon(self.max_icon_hover)
+        self.max_button.leaveEvent = lambda e: self.max_button.setIcon(self.max_icon_normal)
+
+        self.pal_button = QPushButton()
+        self.pal_button.setParent(self)
+        self.pal_button.setGeometry(20, 200, 290, 75)
+        self.pal_button.setStyleSheet("QPushButton { border: none; }")
+        self.pal_button.setIcon(QIcon(path_to_pal_icon))
+        self.pal_button.setIconSize(self.pal_button.size())
+        self.pal_button.clicked.connect(self.openInputWindowPal)
+        self.pal_button.enterEvent = lambda e: self.pal_button.setIcon(self.pal_icon_hover)
+        self.pal_button.leaveEvent = lambda e: self.pal_button.setIcon(self.pal_icon_normal)
+
         self.__drag_position = None
     
     def mousePressEvent(self, event):
@@ -79,6 +108,13 @@ class MainWindow(QMainWindow):
     def displayCredits(self):
         self.credits_window = CreditsWindow()
         self.credits_window.show()
+    
+    def openInputWindowMax(self):
+        self.input_window = InputWindow(variant=0)
+        self.input_window.show()
+    def openInputWindowPal(self):
+        self.input_window = InputWindow(variant=1)
+        self.input_window.show()
 
 if __name__ == "__main__":
     directorio_actual = os.path.dirname(os.path.abspath(__file__))
