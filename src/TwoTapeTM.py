@@ -120,6 +120,7 @@ class TwoTapeTM:
 
             step_counter += 1
 
+
 # La TM's de palindromos recibirá una delta en forma de diccionario de tuplas en donde Key llevara el estado en donde esta, el simbolo de la cinta 1 que se esta leyendo
 # y el simbolo de la cinta 2 que se leyo. Por otro lado los valores de los keys tendran el estado a donde se moverá, el simbolo a escribir en la cinta 1 y 2 y si se desplaza a
 # la izq, der o se mantiene

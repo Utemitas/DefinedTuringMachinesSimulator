@@ -17,6 +17,7 @@ class Binary_PalindromesTM(TwoTapeTM):
 
         super().__init__(delta, initial_state, final_states, blank_symbol)
 
+
     def check(self, input_string, run_type=False):
         self.load(input_string, run_type)
         return self.run()

@@ -122,7 +122,6 @@ class StepsWindow(QMainWindow):
         self.steps += 1
         self.update_ui()
 
-        # 3. VERIFICAR FINALIZACIÓN
         is_finished = False
         result_text = ""
         result_color = ""

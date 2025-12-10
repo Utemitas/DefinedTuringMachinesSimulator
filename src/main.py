@@ -116,6 +116,7 @@ class MainWindow(QMainWindow):
         self.input_window = InputWindow(variant=1)
         self.input_window.show()
 
+
 if __name__ == "__main__":
     directorio_actual = os.path.dirname(os.path.abspath(__file__))
     app = QApplication(sys.argv)
