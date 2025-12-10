@@ -10,7 +10,7 @@ class CreditsWindow(QMainWindow):
         self.setWindowTitle("Créditos")
         self.setGeometry(250, 150, 420, 400)
         self.setWindowFlags(Qt.WindowType.FramelessWindowHint)
-        self.setStyleSheet("background-color: white;")
+        self.setStyleSheet("background-color: black;")
 
         SegoeScriptFont = QFont()
         SegoeScriptFont.setFamily("Segoe Script")
@@ -91,6 +91,7 @@ class CreditsWindow(QMainWindow):
 
     def tebanlink(self):
         webbrowser.open("https://www.instagram.com/est.stgo/")
+
 
 if __name__ == "__main__":
     directorio_actual = os.path.dirname(os.path.abspath(__file__))
