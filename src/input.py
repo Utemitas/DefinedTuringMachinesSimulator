@@ -12,7 +12,7 @@ class WarningWindow(QMainWindow):
         self.setWindowTitle("Warning")
         self.setGeometry(350, 250, 230, 100)
         self.setWindowFlags(Qt.WindowType.FramelessWindowHint)
-        self.setStyleSheet("background-color: black;")
+        self.setStyleSheet("background-color: white;")
         SegoeScriptFont = QFont()
         SegoeScriptFont.setFamily("Segoe Script")
         SegoeScriptFont.setPointSize(12)
@@ -49,7 +49,9 @@ class WarningWindow(QMainWindow):
         self.label2 = QLabel(msgwarning2, self)
         self.label2.setGeometry(70, 70, 120, 20)
         self.label.setFont(QFont("Arial", 10))
+        self.label.setStyleSheet("QLabel { border: none; color: black; }")
         self.label2.setFont(QFont("Arial", 10))
+        self.label2.setStyleSheet("QLabel { border: none; color: black; }")
 
         self.__drag_position = None
 
@@ -72,7 +74,7 @@ class InputWindow(QMainWindow):
         self.setWindowTitle("Input Window")
         self.setGeometry(300, 200, 200, 150)
         self.setWindowFlags(Qt.WindowType.FramelessWindowHint)
-        self.setStyleSheet("background-color: black;")
+        self.setStyleSheet("background-color: white;")
         self.variant = variant
 
         SegoeScriptFont = QFont()
@@ -98,6 +100,7 @@ class InputWindow(QMainWindow):
         self.title_label = QLabel("Entrada", self)
         self.title_label.setFont(SegoeScriptFont)
         self.title_label.setGeometry(10, 10, 120, 30)
+        self.title_label.setStyleSheet("QLabel { border: none; color: black; }")
 
         self.close_button = QPushButton()
         self.close_button.setParent(self)
@@ -127,10 +130,11 @@ class InputWindow(QMainWindow):
             QLineEdit {
                 border: 2px solid black;
                 border-radius: 10px;
+                color: black;
             }
             """
         )
-        binRegExp = QRegularExpression("^[01\\s]*$")
+        binRegExp = QRegularExpression("[0-1]+")
         binValidator = QRegularExpressionValidator(binRegExp)
         self.entry_field.setValidator(binValidator)
 

@@ -119,16 +119,28 @@ class MaxWindow(QMainWindow):
             self.btn_compute.setIconSize(QSize(0, 0))
             self.btn_compute.setText("Siguiente Paso")
             self.btn_compute.setFont(ConsolasFont)
+            self.btn_compute.setStyleSheet("""
+                QPushButton {
+                    border: none;
+                    color: black;
+                }
+                QPushButton:hover {
+                    border: none;
+                    color: gray;
+                }
+            """)
         elif self.state == "q1":
             if self.chain[self.arrow_pos] == 'B':
                 self.state = "q3"
                 self.arrow_pos -= 2
+                self.btn_compute.setText("Cerrar")
             else:
                 self.tape[self.arrow_pos].setText('0')
         elif self.state == "q2":
-            if self.tape[self.arrow_pos] == 'B':
+            if self.chain[self.arrow_pos] == 'B':
                 self.state = "q3"
                 self.arrow_pos -= 2
+                self.btn_compute.setText("Cerrar")
         elif self.state == "q3":
             self.close()
         self.arrow_pos += 1
