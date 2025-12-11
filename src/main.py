@@ -65,7 +65,7 @@ class MainWindow(QMainWindow):
 
         self.creditButton = QPushButton()
         self.creditButton.setParent(self)
-        self.creditButton.setGeometry(230, 10, 30, 30)
+        self.creditButton.setGeometry(290, 310, 30, 30)
         self.creditButton.clicked.connect(self.displayCredits)
         self.creditButton.setIcon(QIcon(path_to_credit_icon))
         self.creditButton.setIconSize(self.creditButton.size())
@@ -73,25 +73,53 @@ class MainWindow(QMainWindow):
         self.creditButton.enterEvent = lambda e: self.creditButton.setIcon(self.credit_icon_hover)
         self.creditButton.leaveEvent = lambda e: self.creditButton.setIcon(self.credit_icon_normal)
 
+
+        #-----------max-----------------------
         self.max_button = QPushButton()
         self.max_button.setParent(self)
-        self.max_button.setGeometry(20, 90, 290, 75)
+        self.max_button.setGeometry(20, 70, 135, 220)
         self.max_button.setStyleSheet("QPushButton { border: none; }")
         self.max_button.setIcon(QIcon(path_to_max_icon))
         self.max_button.setIconSize(self.max_button.size())
         self.max_button.clicked.connect(self.openInputWindowMax)
         self.max_button.enterEvent = lambda e: self.max_button.setIcon(self.max_icon_hover)
         self.max_button.leaveEvent = lambda e: self.max_button.setIcon(self.max_icon_normal)
+        self.max_button.setToolTip("""
+            <div style='background-color: #f0f0f0; 
+                        padding: 10px; 
+                        border: 2px solid #333; 
+                        border-radius: 10px;'>
+                <b>Máquina Max</b><br>
+                Retorna el valor máximo entre 0 y la cadena binaria de 8 bits ingresada
+            </div>
+        """)
+        
+        # Configurar duración del tooltip
+        self.max_button.setToolTipDuration(7000)
 
+
+        #-----------pal----------------
         self.pal_button = QPushButton()
         self.pal_button.setParent(self)
-        self.pal_button.setGeometry(20, 200, 290, 75)
+        self.pal_button.setGeometry(175, 70, 135, 220)
         self.pal_button.setStyleSheet("QPushButton { border: none; }")
         self.pal_button.setIcon(QIcon(path_to_pal_icon))
         self.pal_button.setIconSize(self.pal_button.size())
         self.pal_button.clicked.connect(self.openInputWindowPal)
         self.pal_button.enterEvent = lambda e: self.pal_button.setIcon(self.pal_icon_hover)
         self.pal_button.leaveEvent = lambda e: self.pal_button.setIcon(self.pal_icon_normal)
+        self.pal_button.setToolTip("""
+            <div style='background-color: #f0f0f0; 
+                        padding: 10px; 
+                        border: 2px solid #333; 
+                        border-radius: 10px;'>
+                <b>Máquina Pal</b><br>
+                Acepta únicamente cadenas de palindromos
+            </div>
+        """)
+        
+        # Configurar duración del tooltip
+        self.pal_button.setToolTipDuration(7000)
 
         self.__drag_position = None
     
