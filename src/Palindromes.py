@@ -1,6 +1,6 @@
-from PyQt6.QtWidgets import QLabel, QPushButton, QApplication, QMainWindow, QLineEdit, QMessageBox
-from PyQt6.QtCore import Qt, QRegularExpression
-from PyQt6.QtGui import QFont, QIcon, QRegularExpressionValidator, QImage, QPixmap
+from PyQt6.QtWidgets import QLabel, QPushButton, QApplication, QMainWindow
+from PyQt6.QtCore import Qt
+from PyQt6.QtGui import QFont, QIcon
 import sys, os
 
 
@@ -190,3 +190,14 @@ class StepsWindow(QMainWindow):
         if event.buttons() == Qt.MouseButton.LeftButton and self.__drag_position is not None:
             self.move(event.globalPosition().toPoint() - self.__drag_position)
             event.accept()
+
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    from Binary_PalindromesTM import Binary_PalindromesTM
+
+    tm = Binary_PalindromesTM()
+    tm.load("10101", run_type=True)
+
+    window = StepsWindow(tm, os.path.dirname(os.path.abspath(__file__)))
+    window.show()
+    sys.exit(app.exec())
