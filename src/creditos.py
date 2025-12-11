@@ -10,7 +10,7 @@ class CreditsWindow(QMainWindow):
         self.setWindowTitle("Créditos")
         self.setGeometry(250, 150, 420, 400)
         self.setWindowFlags(Qt.WindowType.FramelessWindowHint)
-        self.setStyleSheet("background-color: black;")
+        self.setStyleSheet("background-color: white;")
 
         SegoeScriptFont = QFont()
         SegoeScriptFont.setFamily("Segoe Script")
@@ -32,16 +32,20 @@ class CreditsWindow(QMainWindow):
         self.title_label = QLabel("Créditos", self)
         self.title_label.setFont(SegoeScriptFont)
         self.title_label.setGeometry(10, 10, 200, 30)
+        self.title_label.setStyleSheet("color: black;")
 
         self.first_line = QLabel("Aplicación sin fines de lucro desarrollada como", self)
         self.first_line.setGeometry(20, 50, 400, 20)
         self.first_line.setFont(LucidaConsoleFont)
+        self.first_line.setStyleSheet("color: black;")
         self.second_line = QLabel("proyecto final para la materia \"Teoría de la", self)
         self.second_line.setGeometry(20, 70, 400, 20)
         self.second_line.setFont(LucidaConsoleFont)
-        self.third_line = QLabel("Computación\" por:", self)
+        self.second_line.setStyleSheet("color: black;")
+        self.third_line = QLabel("Computación\" por los alumnos:", self)
         self.third_line.setGeometry(20, 90, 400, 20)
         self.third_line.setFont(LucidaConsoleFont)
+        self.third_line.setStyleSheet("color: black;")
         
         self.teban_btn = QPushButton("Esteban de Jesús Santiago Torres", self)
         self.teban_btn.setGeometry(50, 110, 300, 20)
@@ -50,12 +54,132 @@ class CreditsWindow(QMainWindow):
             QPushButton {
                 border: none;
                 text-align: left;
+                color: black;                     
             }
             QPushButton:hover {
                 text-decoration: underline;
                 color: blue;
             }""")
         self.teban_btn.clicked.connect(self.tebanlink)
+        
+
+        self.kiran_btn = QPushButton("Kiran Isacc Hernandez Flores", self)
+        self.kiran_btn.setGeometry(50, 130, 300, 20)
+        self.kiran_btn.setFont(LucidaConsoleFont)
+        self.kiran_btn.setStyleSheet("""
+            QPushButton {
+                border: none;
+                text-align: left;
+                color: black;
+            }
+            QPushButton:hover {
+                text-decoration: underline;
+                color: blue;
+            }""")
+        self.kiran_btn.clicked.connect(self.kiranlink)
+
+        self.oscar_btn = QPushButton("Oscar Jasiel Velasco Garcia", self)
+        self.oscar_btn.setGeometry(50, 150, 300, 20)
+        self.oscar_btn.setFont(LucidaConsoleFont)
+        self.oscar_btn.setStyleSheet("""
+            QPushButton {
+                border: none;
+                text-align: left;
+                color: black;
+            }
+            QPushButton:hover {
+                text-decoration: underline;
+                color: blue;
+            }""")
+        self.oscar_btn.clicked.connect(self.oscarlink)
+
+        self.irving_btn = QPushButton("Irving Damian Alvarez Olivera", self)
+        self.irving_btn.setGeometry(50, 170, 300, 20)
+        self.irving_btn.setFont(LucidaConsoleFont)
+        self.irving_btn.setStyleSheet("""
+            QPushButton {
+                border: none;
+                text-align: left;
+                color: black;
+            }
+            QPushButton:hover {
+                text-decoration: underline;
+                color: blue;
+            }""")
+        self.irving_btn.clicked.connect(self.irvinglink)
+
+        self.luis_btn = QPushButton("Luis Angel Sanchez Aguilar", self)
+        self.luis_btn.setGeometry(50, 190, 300, 20)
+        self.luis_btn.setFont(LucidaConsoleFont)
+        self.luis_btn.setStyleSheet("""
+            QPushButton {
+                border: none;
+                text-align: left;
+                color: black;
+            }
+            QPushButton:hover {
+                text-decoration: underline;
+                color: blue;
+            }""")
+        self.luis_btn.clicked.connect(self.luislink)
+
+        self.miguel_btn = QPushButton("Miguel Angel Soriano Martinez", self)
+        self.miguel_btn.setGeometry(50, 210, 300, 20)
+        self.miguel_btn.setFont(LucidaConsoleFont)
+        self.miguel_btn.setStyleSheet("""
+            QPushButton {
+                border: none;
+                text-align: left;
+                color: black;
+            }
+            QPushButton:hover {
+                text-decoration: underline;
+                color: blue;
+            }""")
+        self.miguel_btn.clicked.connect(self.miguellink)
+
+        self.haniel_btn = QPushButton("Haniel Lopez Osorio", self)
+        self.haniel_btn.setGeometry(50, 230, 300, 20)
+        self.haniel_btn.setFont(LucidaConsoleFont)
+        self.haniel_btn.setStyleSheet("""
+            QPushButton {
+                border: none;
+                text-align: left;
+                color: black;
+            }
+            QPushButton:hover {
+                text-decoration: underline;
+                color: blue;
+            }""")
+        self.haniel_btn.clicked.connect(self.haniellink)
+
+        self.cesar_btn = QPushButton("Cesar Zaid Martinez", self)
+        self.cesar_btn.setGeometry(50, 250, 300, 20)
+        self.cesar_btn.setFont(LucidaConsoleFont)
+        self.cesar_btn.setStyleSheet("""
+            QPushButton {
+                border: none;
+                text-align: left;
+                color: black;
+            }
+            QPushButton:hover {
+                text-decoration: underline;
+                color: blue;
+            }""")
+        self.cesar_btn.clicked.connect(self.cesarlink)
+
+        self.fourth_line = QLabel("del grupo \"302-B\". Agradecimientos especiales al", self)
+        self.fourth_line.setGeometry(20, 270, 400, 20)
+        self.fourth_line.setFont(LucidaConsoleFont)
+        self.fourth_line.setStyleSheet("color: black;")
+        self.fifth_line = QLabel("Dr. Raul Cruz Garcia por los conocimientos", self)
+        self.fifth_line.setGeometry(20, 290, 400, 20)
+        self.fifth_line.setFont(LucidaConsoleFont)
+        self.fifth_line.setStyleSheet("color: black;")
+        self.sixth_line = QLabel("adquiridos en su clase.", self)
+        self.sixth_line.setGeometry(20, 310, 400, 20)
+        self.sixth_line.setFont(LucidaConsoleFont)
+        self.sixth_line.setStyleSheet("color: black;")
 
         self.close_button = QPushButton()
         self.close_button.setParent(self)
@@ -92,6 +216,26 @@ class CreditsWindow(QMainWindow):
     def tebanlink(self):
         webbrowser.open("https://www.instagram.com/est.stgo/")
 
+    def kiranlink(self):
+        webbrowser.open("https://www.instagram.com/pollosxd4.0/")
+
+    def oscarlink(self):
+        webbrowser.open("https://www.instagram.com/v.jsk_/")
+
+    def irvinglink(self):
+        webbrowser.open("https://www.instagram.com/damianalvarez829/")
+
+    def luislink(self):
+        webbrowser.open("https://www.instagram.com/imn.luis/")
+
+    def miguellink(self):
+        webbrowser.open("https://www.instagram.com/angxl.srn/")
+
+    def haniellink(self):
+        webbrowser.open("https://www.instagram.com/haniel_ol/")
+
+    def cesarlink(self):
+        webbrowser.open("https://www.instagram.com/zaid_mtz285/")
 
 if __name__ == "__main__":
     directorio_actual = os.path.dirname(os.path.abspath(__file__))
