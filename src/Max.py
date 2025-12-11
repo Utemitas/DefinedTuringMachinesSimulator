@@ -1,4 +1,4 @@
-from PyQt6.QtCore import Qt
+from PyQt6.QtCore import Qt, QSize
 from PyQt6.QtGui import QFont, QIcon
 from PyQt6.QtWidgets import QMainWindow, QLabel, QPushButton, QApplication
 import sys, os
@@ -55,6 +55,7 @@ class MaxWindow(QMainWindow):
             self.tape[i].setGeometry(30 + i*40, 120, 30, 30)
             self.tape[i].setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.tape.append(QLabel("", self))
+        self.tape[8].setGeometry(140, 10, 30, 30)
 
         self.btn_compute = QPushButton()
         self.btn_compute.setParent(self)
@@ -98,8 +99,8 @@ class MaxWindow(QMainWindow):
             event.accept()
     
     def startMachine(self):
+        ConsolasFont = QFont("Consolas", 10, QFont.Weight.Bold)
         if self.arrow_pos == len(self.chain) - 2:
-            ConsolasFont = QFont("Consolas", 10)
             self.tape[8].setText("B")
             self.tape[8].setFont(ConsolasFont)
             self.tape[8].setStyleSheet("color: black; border: 1px solid gray; border-radius: 4px;")
@@ -114,18 +115,24 @@ class MaxWindow(QMainWindow):
             else:
                 self.state = "q2"
                 #q2 deja todo igual y se mueve a la derecha
+            self.btn_compute.setIcon(QIcon())
+            self.btn_compute.setIconSize(QSize(0, 0))
+            self.btn_compute.setText("Siguiente Paso")
+            self.btn_compute.setFont(ConsolasFont)
         elif self.state == "q1":
             if self.chain[self.arrow_pos] == 'B':
                 self.state = "q3"
+                self.arrow_pos -= 2
             else:
                 self.tape[self.arrow_pos].setText('0')
         elif self.state == "q2":
             if self.tape[self.arrow_pos] == 'B':
                 self.state = "q3"
+                self.arrow_pos -= 2
         elif self.state == "q3":
             self.close()
         self.arrow_pos += 1
-        self.state_label.setText(f"Estado: {self.state}; Pasos: {self.steps}")
+        self.state_label.setText(f"Estado: {self.state}{"(Estado Final)" if self.state == "q3" else ""}; Pasos: {self.steps}")
         self.arrow_label.setGeometry(30 + self.arrow_pos*40, 90, 30, 30)
 
 

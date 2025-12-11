@@ -16,7 +16,7 @@ class StepsWindow(QMainWindow):
         self.setWindowTitle("Palindrome")
         self.setGeometry(300, 200, 600, 450)
         self.setWindowFlags(Qt.WindowType.FramelessWindowHint)
-        self.setStyleSheet("background-color: black;")
+        self.setStyleSheet("background-color: white;")
 
         SegoeScriptFont = QFont("Segoe Script", 12, QFont.Weight.Bold)
         ConsolasFont = QFont("Consolas", 16)
@@ -36,7 +36,7 @@ class StepsWindow(QMainWindow):
         #Ttulo
         self.title_label = QLabel("Comprobación de cadena", self)
         self.title_label.setFont(SegoeScriptFont)
-        self.title_label.setStyleSheet("color: white;")
+        self.title_label.setStyleSheet("color: black;")
         self.title_label.setGeometry(10, 10, 300, 30)
 
         self.close_button = QPushButton(self)
@@ -50,7 +50,7 @@ class StepsWindow(QMainWindow):
 
         self.lbl_state = QLabel("Estado: q0 | Pasos: 0", self)
         self.lbl_state.setFont(QFont("Arial", 12, QFont.Weight.Bold))
-        self.lbl_state.setStyleSheet("color: white;")
+        self.lbl_state.setStyleSheet("color: black;")
         self.lbl_state.setGeometry(20, 50, 400, 30)
 
         self.lbl_t1_title = QLabel("Cinta 1:", self)
@@ -61,7 +61,7 @@ class StepsWindow(QMainWindow):
         self.lbl_tape1 = QLabel(self)
         self.lbl_tape1.setFont(ConsolasFont)
         self.lbl_tape1.setStyleSheet(
-            "background-color: #111; color: white; border-radius: 5px; padding: 5px; border: 1px solid #333;")
+            "background-color: #B0B0B0; color: black; border-radius: 5px; padding: 5px; border: 1px solid #333;")
         self.lbl_tape1.setGeometry(20, 115, 560, 60)
 
         self.lbl_t2_title = QLabel("Cinta 2:", self)
@@ -72,7 +72,7 @@ class StepsWindow(QMainWindow):
         self.lbl_tape2 = QLabel(self)
         self.lbl_tape2.setFont(ConsolasFont)
         self.lbl_tape2.setStyleSheet(
-            "background-color: #111; color: white; border-radius: 5px; padding: 5px; border: 1px solid #333;")
+            "background-color: #B0B0B0; color: white; border-radius: 5px; padding: 5px; border: 1px solid #333;")
         self.lbl_tape2.setGeometry(20, 210, 560, 60)
 
         self.lbl_result = QLabel("", self)
@@ -111,11 +111,11 @@ class StepsWindow(QMainWindow):
             self.step_button.setStyleSheet("""
                 QPushButton { 
                     border: none; 
-                    color: white; 
+                    color: black; 
                     font-weight: bold; 
                     font-size: 16px; 
                 }
-                QPushButton:hover { color: #cccccc; } 
+                QPushButton:hover { color: #494949; } 
             """)
 
         moved = self.tm.step()
@@ -129,13 +129,13 @@ class StepsWindow(QMainWindow):
         if self.tm.current_state in self.tm.final_states:
             is_finished = True
             result_text = "¡Es un palindromo!"
-            result_color = "#00ff00"
+            result_color = "#00b100"
             self.lbl_state.setText(f"Estado: {self.tm.current_state} (FINAL) | Pasos: {self.steps}")
 
         elif not moved and self.tm.current_state not in self.tm.final_states:
             is_finished = True
             result_text = "No es un palindromo (Sin transición)"
-            result_color = "#ff3333"  # Rojo
+            result_color = "#b51f1f"  # Rojo
 
         if is_finished:
             self.lbl_result.setText(result_text)
@@ -151,7 +151,7 @@ class StepsWindow(QMainWindow):
                     font-weight: bold; 
                     font-size: 16px; 
                 }}
-                QPushButton:hover {{ color: white; }}
+                QPushButton:hover {{ color: #494949; }}
             """)
 
             self.step_button.clicked.disconnect()
@@ -166,8 +166,8 @@ class StepsWindow(QMainWindow):
         tape_line_html = ""
         arrow_line_html = ""
 
-        highlight_color = "#ff3333"
-        normal_color = "white"
+        highlight_color = "#b42424"
+        normal_color = "black"
         arrow_char = "↑"
         spacer = "&nbsp;"
 

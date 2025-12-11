@@ -3,6 +3,7 @@ from PyQt6.QtCore import Qt, QRegularExpression
 from PyQt6.QtGui import QFont, QIcon, QRegularExpressionValidator, QImage, QPixmap
 import sys, os
 from Palindromes import StepsWindow
+from Max import MaxWindow
 from Binary_PalindromesTM import *
 
 class WarningWindow(QMainWindow):
@@ -167,7 +168,8 @@ class InputWindow(QMainWindow):
                 self.warning_window = WarningWindow("La entrada debe contener", "8 caracteres.")
                 self.warning_window.show()
                 return False
-            #Funcion de máquina de turing que devuelve el max(a, 0)
+            win = MaxWindow(chain=input_text)
+            win.show()
         else:
             if len(input_text) == 0:
                 self.warning_window = WarningWindow("La cadena de entrada no","puede ser vacia.")
