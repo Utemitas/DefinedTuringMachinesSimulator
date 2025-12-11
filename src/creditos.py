@@ -63,7 +63,7 @@ class CreditsWindow(QMainWindow):
         self.teban_btn.clicked.connect(self.tebanlink)
         
 
-        self.kiran_btn = QPushButton("Kiran Isacc Hernandez Flores", self)
+        self.kiran_btn = QPushButton("Kiran Isaac Hernandez Flores", self)
         self.kiran_btn.setGeometry(50, 130, 300, 20)
         self.kiran_btn.setFont(LucidaConsoleFont)
         self.kiran_btn.setStyleSheet("""
