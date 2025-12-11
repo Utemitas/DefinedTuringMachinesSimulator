@@ -6,7 +6,7 @@ from Palindromes import StepsWindow
 from Binary_PalindromesTM import *
 
 class WarningWindow(QMainWindow):
-    def __init__(self, directorio : str = os.path.dirname(os.path.abspath(__file__))):
+    def __init__(self, msgwarning1, msgwarning2, directorio : str = os.path.dirname(os.path.abspath(__file__))):
         super().__init__()
         self.setWindowTitle("Warning")
         self.setGeometry(350, 250, 230, 100)
@@ -42,9 +42,10 @@ class WarningWindow(QMainWindow):
         self.close_button.enterEvent = lambda e: self.close_button.setIcon(self.close_icon_hover)
         self.close_button.leaveEvent = lambda e: self.close_button.setIcon(self.close_icon_normal)
 
-        self.label = QLabel("La entrada debe contener", self)
+        #Warnings
+        self.label = QLabel(msgwarning1, self)
         self.label.setGeometry(70, 50, 150, 20)
-        self.label2 =QLabel("8 caracteres.", self)
+        self.label2 = QLabel(msgwarning2, self)
         self.label2.setGeometry(70, 70, 120, 20)
         self.label.setFont(QFont("Arial", 10))
         self.label2.setFont(QFont("Arial", 10))
@@ -60,6 +61,9 @@ class WarningWindow(QMainWindow):
         if event.buttons() == Qt.MouseButton.LeftButton and self.__drag_position is not None:
             self.move(event.globalPosition().toPoint() - self.__drag_position)
             event.accept()
+
+
+
 
 class InputWindow(QMainWindow):
     def __init__(self, directorio : str = os.path.dirname(os.path.abspath(__file__)), variant : int = 1):
@@ -160,12 +164,15 @@ class InputWindow(QMainWindow):
                     l = 0
                 string_to_add = "0"*l
                 self.entry_field.setText(string_to_add + input_text)
-                self.warning_window = WarningWindow()
+                self.warning_window = WarningWindow("La entrada debe contener", "8 caracteres.")
                 self.warning_window.show()
                 return False
             #Funcion de máquina de turing que devuelve el max(a, 0)
         else:
-                #Palindromos
+            if len(input_text) == 0:
+                self.warning_window = WarningWindow("La cadena de entrada no","puede ser vacia.")
+                self.warning_window.show()
+            else:
                 tm = Binary_PalindromesTM()
                 tm.load(input_text)
                 current_dir = os.path.dirname(os.path.abspath(__file__))
