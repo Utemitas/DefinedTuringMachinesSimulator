@@ -55,7 +55,7 @@ La interfaz usa las fuentes **Segoe Script** y **Consolas** de Windows; en otros
 
 ## Ejecutable para Windows
 
-La carpeta `dist/` contiene el programa empaquetado con **PyInstaller**, que se puede abrir sin instalar Python. Para generarlo de nuevo:
+El programa empaquetado con **PyInstaller**, que se abre sin instalar Python, está en [Releases](https://github.com/Utemitas/DefinedTuringMachinesSimulator/releases/latest) (`MaquinasDeTuring.exe`). Para generarlo de nuevo (queda en `dist/`):
 
 ```bash
 pip install pyinstaller
@@ -75,7 +75,6 @@ DefinedTuringMachinesSimulator/
 │   ├── Palindromes.py           # Ventana de simulación paso a paso (dos cintas)
 │   ├── creditos.py              # Ventana de créditos
 │   └── assets/icons/            # Iconos de la interfaz
-├── dist/                        # Ejecutables para Windows (PyInstaller)
 ├── Maquinas_de_Turing.spec      # Configuración de PyInstaller
 ├── setup.py / pyproject.toml    # Metadatos del paquete
 └── requirements.txt

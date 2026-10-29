@@ -17,3 +17,7 @@ __pycache__/
 # Sistema
 .DS_Store
 Thumbs.db
+
+# PyInstaller (el ejecutable se publica como Release de GitHub)
+build/
+dist/
