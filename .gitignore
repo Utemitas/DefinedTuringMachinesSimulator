@@ -21,3 +21,6 @@ Thumbs.db
 # PyInstaller (el ejecutable se publica como Release de GitHub)
 build/
 dist/
+
+# Metadatos que genera pip/setuptools al instalar el paquete
+*.egg-info/
